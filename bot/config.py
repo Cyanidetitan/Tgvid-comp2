@@ -9,7 +9,7 @@ try:
     BOT_TOKEN = "5210009358:AAESvuzGgAhRITt0BZxgrMjnRqlq2yDf18Q"
     DEV = 1664850827
     OWNER = "1443454117"
-    ffmpegcode = ["""-preset medium -c:v copy -metadata:s:v:0 title="t.me/animxt" -c:a copy -c:s copy -map 0"""]
+    ffmpegcode = ["""-c:v copy -metadata:s:v:0 title="t.me/animxt" -c:a copy -c:s copy -map 0"""]
     THUMBNAIL = config("THUMBNAIL", default="https://telegra.ph/file/f9e5d783542906418412d.jpg")
 except Exception as e:
     print("Environment vars Missing! Exiting App.")
