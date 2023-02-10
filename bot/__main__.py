@@ -171,33 +171,37 @@ async def something():
                         dl = "downloads/" + dl
                         with open(dl, "wb") as f:
                             ok = await download_file(
-                                client=bot,
+                                client=event.client,
                                 location=file,
                                 out=f,
                                 progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                                    progress(
-                                        d,
-                                        t,
-                                        e,
-                                        tt,
-                                        f"**📥 Downloading**\n__{dl.replace(f'downloads/', '')}__",
-                                    )
-                                ),
-                            )
+                                progress(
+                                   d,
+                                   t,
+                                   xxx,
+                                   ttt,
+                                   f"**📥 Downloading**\n__{filename}__",
+                                       )
+                                   ),
+                               )
                 except Exception as r:
                     LOGS.info(r)
                     WORKING.clear()
                     QUEUE.pop(list(QUEUE.keys())[0])
+                return os.remove(dl)
                 es = dt.now()
                 kk = dl.split("/")[-1]
                 aa = kk.split(".")[-1]
-                newFile = dl.replace(f"downloads/", "").replace(f"_", " ")
-                rr = "encode"
+                rr = f"encode"
                 bb = kk.replace(f".{aa}", ".mkv")
+                bb = bb.replace("@Anime_Gallery", "@animxt")
+                bb = bb.replace("720p", "720p x265 BD")
+                newFile = dl.replace(f"downloads/", "").replace(f"_", " ")
                 out = f"{rr}/{bb}"
                 thum = "thumb.jpg"
                 dtime = ts(int((es - s).seconds) * 1000)
-                hehe = f"{out};{dl};{list(QUEUE.keys())[0]}"
+                e = xxx
+                hehe = f"{out};{dl};0"
                 wah = code(hehe)
                 nn = await e.edit(
                     "**🗜 Compressing...**",
@@ -247,8 +251,8 @@ async def something():
                 a2 = await info(out, e)
                 dk = f"<b>File Name:</b> {newFile}\n\n<b>Original File Size:</b> {hbs(org)}\n<b>Encoded File Size:</b> {hbs(com)}\n<b>Encoded Percentage:</b> {per}\n\n<b>Get Mediainfo Here:</b> <a href='{a1}'>Before</a>/<a href='{a2}'>After</a>\n\n<i>Downloaded in {x}\nEncoded in {xx}\nUploaded in {xxx}</i>"
                 ds = await e.client.send_file(
-                    e.chat_id, file=ok, force_document=True, caption=dk, link_preview=False, thumb=thum, parse_mode="html"
-                )
+                            e.chat_id, file=ok, force_document=True, caption=bb.replace(".mkv", "") , link_preview=False, parse_mode="html"
+        )
                 QUEUE.pop(list(QUEUE.keys())[0])
                 os.remove(dl)
                 os.remove(out)
