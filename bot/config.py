@@ -6,9 +6,9 @@ from decouple import config
 try:
     APP_ID = "10247139"
     API_HASH = "96b46175824223a33737657ab943fd6a"
-    BOT_TOKEN = "5210009358:AAESvuzGgAhRITt0BZxgrMjnRqlq2yDf18Q"
+    BOT_TOKEN = "5970291834:AAEL13_b8CTAnJ93ALGK18EQfA6Jn967IsM"
     DEV = 1664850827
-    OWNER = "1443454117"
+    OWNER = "5700625607"
     ffmpegcode = ["""-c:v copy -metadata:s:v:0 title="t.me/animxt" -c:a copy -c:s copy -map 0"""]
     THUMBNAIL = config("THUMBNAIL", default="https://telegra.ph/file/f9e5d783542906418412d.jpg")
 except Exception as e:
